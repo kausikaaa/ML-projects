@@ -44,3 +44,11 @@ X_train, X_test, y_train, y_test = train_test_split(
 # Train the Model
 model = MultinomialNB()
 model.fit(X_train,y_train)
+
+# Make predictions on the test set
+y_pred = model.predict(X_test)
+
+# Evaluate using common metrics
+print("Accuracy:", accuracy_score(y_test,y_pred))
+print("\nConfusion Matrix:\n", confusion_matrix(y_test,y_pred))
+print("\nClassification Report:\n", classification_report(y_test,y_pred))
