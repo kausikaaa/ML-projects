@@ -35,3 +35,8 @@ y = df['label']    # The labels (0 or 1)
 # Convert text to numeric features
 tfidf = TfidfVectorizer(stop_words='english', max_features=3000)
 X_transformed = tfidf.fit_transform(X)  # Now X is a matrix of TF-IDF features
+
+# Split the data (80% train, 20% test)
+X_train, X_test, y_train, y_test = train_test_split(
+    X_transformed, y, test_size=0.2, random_state=42
+)
