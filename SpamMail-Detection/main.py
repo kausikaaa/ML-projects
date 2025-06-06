@@ -28,3 +28,10 @@ df.dropna(inplace=True)
 print(df.head())  # Show first few rows
 print(df['label'].value_counts())  # Show how many ham/spam messages
 
+# Separate features and labels
+X = df['message']  # The messages (input)
+y = df['label']    # The labels (0 or 1)
+
+# Convert text to numeric features
+tfidf = TfidfVectorizer(stop_words='english', max_features=3000)
+X_transformed = tfidf.fit_transform(X)  # Now X is a matrix of TF-IDF features
