@@ -18,3 +18,13 @@ df.columns = ['label', 'message']  # Rename for clarity
 # Check shape and info
 print(df.shape)
 print(df.info())
+
+# Convert 'ham' to 0 and 'spam' to 1
+df['label'] = df['label'].map({'ham': 0, 'spam': 1})
+
+# Drop any missing values (safety check)
+df.dropna(inplace=True)
+
+print(df.head())  # Show first few rows
+print(df['label'].value_counts())  # Show how many ham/spam messages
+
