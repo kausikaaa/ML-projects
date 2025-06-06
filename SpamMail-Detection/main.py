@@ -40,3 +40,7 @@ X_transformed = tfidf.fit_transform(X)  # Now X is a matrix of TF-IDF features
 X_train, X_test, y_train, y_test = train_test_split(
     X_transformed, y, test_size=0.2, random_state=42
 )
+
+# Train the Model
+model = MultinomialNB()
+model.fit(X_train,y_train)
