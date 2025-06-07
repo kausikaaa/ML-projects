@@ -52,3 +52,13 @@ y_pred = model.predict(X_test)
 print("Accuracy:", accuracy_score(y_test,y_pred))
 print("\nConfusion Matrix:\n", confusion_matrix(y_test,y_pred))
 print("\nClassification Report:\n", classification_report(y_test,y_pred))
+
+# Predict New Message
+def predict_message(msg):
+    msg_transformed = tfidf.transform([msg])
+    prediction = model.predict(msg_transformed)[0]
+    return "Spam" if prediction == 1 else "Ham"
+
+# Test example
+print("\nSample Prediction:")
+print(predict_message("Congratulations! You won a free ticket to Bahamas!"))
